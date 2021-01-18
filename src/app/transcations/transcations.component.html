@@ -1,0 +1,65 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<div class="example-container">
+    <div>
+        <h1>
+            Account Number : {{acc_no}}
+        </h1>
+    </div>
+    <table mat-table [dataSource]="transcationData" class="mat-elevation-z8" matSort>
+    
+       
+    
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+      <!-- Transcation Id Column -->
+      <ng-container matColumnDef="tranctionId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  Transcation Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionId}} </td>
+      </ng-container>
+    
+      <!-- Transcation Type Column -->
+      <ng-container matColumnDef="tranctionType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionType}} </td>
+      </ng-container>
+    
+      <!-- Transcation Date Column -->
+      <ng-container matColumnDef="tranctionDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionDate}} </td>
+      </ng-container>
+
+      <!-- Transcation Amount Column -->
+
+      <ng-container matColumnDef="tranctionAmount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionAmount}} </td>
+      </ng-container>
+      <!-- Transcation Remarks Column -->
+      <ng-container matColumnDef="tranctionRemarks">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation Remarks </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionRemarks}} </td>
+      </ng-container>
+      <!-- Transcation to/from other Account Column -->
+      <ng-container matColumnDef="tranctionOtherParty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation OtherParty </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionOtherParty}} </td>
+      </ng-container>
+      <!-- Transcation Status Column -->
+      <ng-container matColumnDef="tranctionStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transcation Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.tranctionStatus}} </td>
+      </ng-container>
+    
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+      
+      </table>
+    
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
